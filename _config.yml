@@ -37,3 +37,27 @@ links:
 timezone:    Europe/London
 future:      true
 markdown:    kramdown
+
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: Posts
+    url: /posts/
+
+# http://jekyllrb.com/docs/permalinks/
+permalink:   pretty
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers:
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
