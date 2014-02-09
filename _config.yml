@@ -4,7 +4,6 @@ pygments: true
 source: .
 
 title:            Saulius Lukauskas
-description:      Describe your website here.
 disqus_shortname: sauliuslukauskas
 url:              http://localhost:4000
 
