@@ -3,7 +3,7 @@ lsi: false
 pygments: true
 source: .
 
-title:            Saulius Lukauskas
+title:            Blog ~ Saulius Lukauskas
 disqus_shortname: sauliuslukauskas
 url:              http://localhost:4000
 
