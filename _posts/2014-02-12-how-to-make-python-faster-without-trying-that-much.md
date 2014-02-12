@@ -4,6 +4,7 @@ layout: post
 published: true
 category: article
 tags: Python, PyPy, Cython, CPython, profiling, optimisation, programming
+comments: true
 ---
 <section id="table-of-contents" class="toc">
   <header>
