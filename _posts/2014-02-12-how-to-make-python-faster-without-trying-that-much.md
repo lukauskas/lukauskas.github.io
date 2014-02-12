@@ -5,6 +5,17 @@ published: true
 category: article
 tags: Python, PyPy, Cython, CPython, profiling, optimisation, programming
 ---
+<section id="table-of-contents" class="toc">
+  <header>
+    <h3>Contents</h3>
+  </header>
+<div id="drawer" markdown="1">
+*  Auto generated table of contents
+{:toc}
+</div>
+</section><!-- /#table-of-contents -->
+
+
 This article is based on a demo I gave in a session at the [Theoretical Systems Biology Group](http://www.theosysbio.bio.ic.ac.uk/) on 4th of February.
 
 The example focuses on optimising a small program that computes the best alignment for two protein sequences.
