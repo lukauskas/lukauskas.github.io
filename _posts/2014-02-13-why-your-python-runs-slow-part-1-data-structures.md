@@ -1,17 +1,17 @@
 ---
 title: 'Why Your Python Runs Slow. Part 1: Data Structures'
 layout: post
-published: false
+published: true
 category: articles
 tags: '[python, pypy, data structures, optimisation]'
 ---
 Almost a year ago, in Waza 2013, Alex Gaynor delivered an excellent talk on ["Why Python, Ruby and Javascript are slow"][1] . The key of his talk, as he emphasised, is in the present tense. In other words, even if these languages *are* slower now, it does not mean that the situation is hopeless and will necessarily stay that way forever.
 
-When one asks a question among the lines of why Python is slower than C, dynamic typing is the first answer to get thrown around. While it is true that dynamically  typed programming languages have some overhead associated with them, it may not be the major factor slowing down *your* Python code. 
+When one asks a question among the lines of why Python is slower than C, dynamic typing is the first answer to get thrown around. While it is true that dynamically  typed programming languages have some overhead associated with them, it may not be the major factor slowing down *your* Python code.
 
-Dynamic typing (and other *magic* features of programming languages like Python) make the code harder to optimise. There is a huge difference between "harder to optimise" and "slower". In fact, as Alex mentions in his talk, we have had years of research focusing on what is the best way to perform type checking at runtime. This research has already lead to ways of making this overhead negligible in most cases. 
+Dynamic typing (and other *magic* features of programming languages like Python) make the interpreters for the language harder to optimise. There is a huge difference between interpreter being harder to optimise and your code being slower, however. In fact, as Alex himself mentions in the talk, we have had years of research focusing on what is the best way to perform type checking at runtime. This research has already lead to ways of making this overhead negligible.
 
-In reality, the significant runtime differences between Pythonic code and C boils down to different data structures and algorithms used in each of the cases. Sometimes even without the programmers being aware of them.
+In reality, the significant runtime differences between Pythonic code and C boil down to different data structures and algorithms used in each of the cases. Sometimes even without the programmers being aware of them.
 
 [1]: http://vimeo.com/61044810
 
@@ -36,9 +36,9 @@ struct Point {
 };
 {% endhighlight %}
 
-While this solution is as elegant and as easy to work with as the Pythonic solution, it is completely different data structure.  Here we tell the interpreter that each point would have exactly two fields, `x` and `y`. Knowing the size of these fields, the interpreter could take the hint and allocate  them near each other, as a single contiguous memory block. In other words, the structure would be similar to an array. The interpreter would know exactly where `x` and `y` fields of a given point are at any time. We could also access both of these fields in memory easily, just by looking some constant offset away from where the point itself is. 
+While this solution is as elegant and as easy to work with as the Pythonic solution, it is completely different data structure.  Here we tell the interpreter that each point would have exactly two fields, `x` and `y`. Knowing the size of these fields, the interpreter could take the hint and allocate  them near each other, as a single contiguous memory block. In other words, the structure would be similar to an array. The interpreter would know exactly where `x` and `y` fields of a given point are at any time. We could also access both of these fields in memory easily, just by looking some constant offset away from where the point itself is.
 
-Pythonic code uses a hash table-like data structure to perform a similar task.  The interpreter cannot simply preallocate a contiguous block of memory to store both `x` and `y` next to each other to make them easily accessible. This is impossible as we could also have any number of keys present in the dictionary at any time. We could also delete these keys if we wanted to. The interpreter must be able to convert any input to a memory location. Hash functions were designed to provide this mapping. Needless to say, these functions add a some overhead to the calculation. While it is usually small, it may as well be significant enough to slow down your code, especially if you have to do a lot of them.
+Pythonic code uses a hash table-like data structure to perform a similar task.  The interpreter cannot simply preallocate a contiguous block of memory to store both `x` and `y` next to each other to make them easily accessible. This is impossible as we could also have any number of keys present in the dictionary at any time. We could also delete these keys if we wanted to. The interpreter must use a hash function to be able to map any input you could throw at him to a memory location. Needless to say, these functions add a some overhead to the calculation. While it is usually small, it may as well be significant enough to slow down your code, especially if you have to do a lot of them.
 
 If someone was to directly translate the pythonic code to C++, they would probably  end up with something similar to:
 
@@ -73,7 +73,7 @@ def sum_(points):
     return sum_x, sum_y
 {% endhighlight %}
 
-A similar code block that replaces `point['x']` with `point.x` takes 201 microseconds to run on the same machine. In other words, using the class `Point` is 8% slower. 
+A similar code block that replaces `point['x']` with `point.x` takes 201 microseconds to run on the same machine. In other words, using the class `Point` is 8% slower.
 
 In CPython, `point.x` is often executed in the same way as the statement  `dict(point)['x']`[^2].
 This means that the class implementation of a point still uses a dictionary lookup, as  before, with some additional overhead. In this sense, it is easy to see why the dictionaries are thought to be "lightweight objects".
