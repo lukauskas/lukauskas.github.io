@@ -1,11 +1,11 @@
 safe: true
-lsi: false
+lsi: true
 pygments: true
 source: .
 
 title:            Blog ~ Saulius Lukauskas
 disqus_shortname: sauliuslukauskas
-url:              
+url:
 
 # Owner/author information
 owner:
