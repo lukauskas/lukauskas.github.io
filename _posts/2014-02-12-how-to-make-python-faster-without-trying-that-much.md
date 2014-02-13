@@ -2,7 +2,7 @@
 title: How to Make Python Faster Without Trying That Much
 layout: post
 published: true
-category: article
+category: articles
 tags: Python, PyPy, Cython, CPython, profiling, optimisation, programming
 comments: true
 ---
