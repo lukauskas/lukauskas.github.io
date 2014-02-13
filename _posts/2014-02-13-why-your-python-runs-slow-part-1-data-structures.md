@@ -4,6 +4,7 @@ layout: post
 published: true
 category: articles
 tags: '[python, pypy, data structures, optimisation]'
+comments: true
 ---
 Almost a year ago, in Waza 2013, Alex Gaynor delivered an excellent talk on ["Why Python, Ruby and Javascript are slow"][1] . The key of his talk, as he emphasised, is in the present tense. In other words, even if these languages *are* slower now, it does not mean that the situation is hopeless and will necessarily stay that way forever.
 
