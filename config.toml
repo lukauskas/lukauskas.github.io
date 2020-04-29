@@ -1,0 +1,49 @@
+baseURL = "http://lukauskas.net"
+languageCode = "en-gb"
+title = "Saulius Lukauskas"
+theme = "kiss-em"
+
+Paginate = 5 # Number of posts per page
+enableRobotsTXT = true
+defaultContentLanguage = "en"
+
+disableLanguages=['de']
+
+[languages]
+  # [languages.de]
+  #   title = "Das ist Kiss'Em!"
+  #   weight = 2
+  [languages.en]
+    title = "Saulius Lukauskas"
+    weight = 1
+
+[params.microblog]
+    number = 2
+
+[params.assets]
+  customCSS = ["css/custom.css"]
+
+[params.rss]
+    enable = false
+    # includeContent = true
+    # authorName = "Saulius Lukauskas"
+    # authorEmail = ""
+
+[params.info]
+    poweredby = true
+    related = true
+    copyright = "Saulius Lukauskas, 2020"
+
+[params.social]
+    about = "micro/about"
+    twitter = "@lukauskas_"
+    github = "lukauskas"
+    # email = ""
+    linkedin = "sauliuslukauskas"
+    # rss = "index.xml"
+
+[params.social.config]
+    platforms = ["about", "linkedin", "github", "twitter"]
+
+[taxonomies]
+    tag ="tags"
