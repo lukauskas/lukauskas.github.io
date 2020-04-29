@@ -7,6 +7,8 @@ Paginate = 5 # Number of posts per page
 enableRobotsTXT = true
 defaultContentLanguage = "en"
 
+disableLanguages=['de']
+
 [languages]
   # [languages.de]
   #   title = "Das ist Kiss'Em!"
@@ -14,6 +16,12 @@ defaultContentLanguage = "en"
   [languages.en]
     title = "Saulius Lukauskas"
     weight = 1
+
+[params.microblog]
+    number = 2
+
+[params.assets]
+  customCSS = ["css/custom.css"]
 
 [params.rss]
     enable = false
