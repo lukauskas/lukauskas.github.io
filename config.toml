@@ -35,7 +35,7 @@ disableLanguages=['de']
     copyright = "Saulius Lukauskas, 2020"
 
 [params.social]
-    about = "about"
+    about = "micro/about"
     twitter = "@lukauskas_"
     github = "lukauskas"
     # email = ""
